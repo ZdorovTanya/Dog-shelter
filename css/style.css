@@ -142,10 +142,7 @@ ul {
     background-color: rgba(100, 80, 80, 0.5);
     padding: 30px 25px;
 }
-.sidebar__menu {
-}
-.sidebar__list {
-}
+
 .sidebar__list li{
     margin: 0px 0px 40px 0px;
 }
@@ -157,13 +154,11 @@ ul {
     grid-column: 3/4;
     padding: 0px 0px 0px 30px;
 }
-.content__title {
-}
+
 .content__gallery {
     margin: 30px 0px 70px 0px;
 }
-.gallery {
-}
+
 .gallery__title {
     margin: 0px 0px 30px 0px;
 }
@@ -184,6 +179,12 @@ ul {
     top: 0;
     left:0;
     object-fit: cover;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.gallery__item img:hover{
+    transform: scale(1.02);
 }
 .gallery__item_big {
     grid-column: span 2;
@@ -250,4 +251,26 @@ ul {
 .footer__text {
     grid-column: 3/4;
     text-align: right;
+}
+
+.pop-up{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+    display: none;
+}
+
+.pop-up img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pop-up span{
+    cursor: pointer;
+    font-size: 30px;
 }
