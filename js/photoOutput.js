@@ -22,6 +22,15 @@ window.onload = function() {
         "/img/shop/10.jpg",
     ];
 
+    var productsName = [
+        "Sideshow Bob Wig",
+        "Crown from Game of Thrones",
+        "Glasses from the movie Fight club",
+        "Genie's Turban from Aladdin",
+        "Deer hunter's hat from Sherlock Holmes",
+        "Hood from star wars",
+    ];
+
     var galleryFoto = document.createElement("div");
     galleryFoto.classList.add("gallery__items");
     for (var i = 0; i < 10; i++) 
@@ -42,20 +51,31 @@ window.onload = function() {
 
 
     var contentShop = document.getElementById ('products__items');
+
     for (var i = 0; i < 6; i++) 
         {
-            var d = document.createElement("div");
-            d.classList.add('products__item');
+            var card = document.createElement("div");
+            card.classList.add('products__item');
           
-            var p = document.createElement("div");
-            p.classList.add('products__image');
+            var image = document.createElement("div");
+            image.classList.add('products__image');
 
             var img = document.createElement("img");
             img.src = shopFoto[i];
 
-            p.appendChild(img);
-            d.appendChild(p); //добавляет новые html элементы к существующим
-            contentShop.appendChild(d); 
+            var text = document.createElement("div");
+            text.classList.add('products__name');
+            text.innerText = productsName[i];
+
+            var btnShop = document.createElement("a");
+            btnShop.classList.add('products__button');
+            btnShop.innerText = "Pick up now";
+
+            image.appendChild(img);
+            card.appendChild(image); //добавляет новые html элементы к существующим
+            card.appendChild(text);
+            card.appendChild(btnShop);
+            contentShop.appendChild(card); 
         }
 };
 
