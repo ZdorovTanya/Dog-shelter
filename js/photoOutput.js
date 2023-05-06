@@ -54,16 +54,41 @@ window.onload = function() {
     var contentGallery = document.getElementById ('content__gallery');
     contentGallery.appendChild(galleryFoto); 
 
-    document.querySelectorAll(".gallery__item img").forEach(img=>{
-        img.onclick = () => {
-            document.querySelector(".pop-up").style.display = 'block';
-            document.querySelector('.pop-up img').src = img.getAttribute('src');
-        }
-    });
+    var textAboutDog = [
+        "This is Jojo. She is 7 years old and she ended up in a shelter after she stole new things from previous owners.",
+        "This is Ray. He is 3 years old and the owners gave him to a shelter after they found out that he was very cold and could not guard the house in Siberia.",
+        "This is Coco. She is 2 years old and she ended up in a shelter after her owners found out that she always dreamed of visiting Paris, but they do not have such an opportunity.",
+        "This is Barbos. He is 10 months old and abandoned because he looks too old at his young age and his behavior doesn't match his appearance.",
+        "This is Pierce. He is 15 years old and sent to an animal shelter because he is no longer as cheerful as before.",
+        "This is Lola. She is 2 years old, the owners abandoned her because she was too big for a special carrier for dogs and did not let her go to the cafe with them.",
+        "This is Artem. He is 1.5 years old, he ended up in a shelter after living in St. Petersburg. Without the sun, he became covered with blues and the owners could no longer cheer him up.",
+        "This is Rocky. He is 3 years old, his elegant owners sent him to an orphanage when they realized that he has a harsh Russian soul and he will never sit quietly at exhibitions and go to museums.",
+        "This is Bob. He is 1 year old, he was sent to a shelter because he really wanted to learn how to fly and constantly jumped from the couch, and from everything that could be climbed on.",
+        "This is Hans. He is 2 years old and ended up in a shelter after his ugly owner realized he looked better in a photo than her.",
+    ];
 
+    var fotoNum = document.querySelectorAll(".gallery__item img");
+    for (let j = 0; j<fotoNum.length; j++){
+        console.log(fotoNum[j]);
+        fotoNum[j].onclick = function(){
+            
+            document.querySelector(".pop-up").style.display = 'block';
+            document.querySelector('.pop-up img').src = fotoNum[j].getAttribute('src');
+
+            let textElement = document.createElement('div');
+            textElement.classList.add('about__dog')
+            textElement.innerHTML = textAboutDog[j];
+
+            document.querySelector(".pop-up").append(textElement);
+        }
+    };
 
     document.querySelector('.pop-up span').onclick = () =>{
         document.querySelector(".pop-up").style.display = 'none';
+        
+        var text = document.querySelector('.about__dog');
+        const parent = text.parentNode;
+        parent.removeChild(text);
     }
     
     //------------------------------------------------------------shop output--------------------------------------------------------------
